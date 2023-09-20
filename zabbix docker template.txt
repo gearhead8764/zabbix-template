@@ -53,4 +53,6 @@ docker run --name zabbix-web-nginx-pgsql -t \
 docker run --name zabbix-agent \
       -e ZBX_HOSTNAME="zabbix-agent" \
       -e ZBX_SERVER_HOST="zabbix-server-pgsql" \
+      --network=zabbix-net \
+      --restart unless-stopped \
       --init -d zabbix/zabbix-agent:alpine-6.4-latest
