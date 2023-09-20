@@ -47,3 +47,10 @@ docker run --name zabbix-web-nginx-pgsql -t \
       -v /home/survtech/zabbix/nginx:/etc/ssl/nginx:ro \
       --restart unless-stopped \
       -d zabbix/zabbix-web-nginx-pgsql:alpine-6.4-latest
+
+
+
+docker run --name zabbix-agent \
+      -e ZBX_HOSTNAME="zabbix-agent" \
+      -e ZBX_SERVER_HOST="zabbix-server-pgsql" \
+      --init -d zabbix/zabbix-agent:alpine-6.4-latest
